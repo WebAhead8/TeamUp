@@ -1,6 +1,7 @@
 BEGIN;
 
-DROP TABLE IF EXISTS users CASCADE; 
+DROP TABLE IF EXISTS users, games, rooms, posts CASCADE; 
+
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
@@ -8,27 +9,23 @@ CREATE TABLE users (
   lastname VARCHAR(255) NOT NULL,
   username VARCHAR(255) NOT NULL,
   email VARCHAR(255) NOT NULL UNIQUE,
+  pass VARCHAR(255) NOT NULL,
   platform TEXT [],
-  gamelist TEXT [],
-  post INTEGER REFERENCES posts(id)
-
+  gamelist TEXT []
 );
 
 CREATE TABLE games (
     id SERIAL PRIMARY KEY,
     gname VARCHAR(255) NOT NULL,
-    descr TEXT,
-    rooms INTEGER REFERENCES rooms(id)
-
-
-
+    descr TEXT
 );
 
 CREATE TABLE rooms (
     id SERIAL PRIMARY KEY,
     rname VARCHAR(255) NOT NULL,
+    gname INTEGER REFERENCES games(id),
     host INTEGER REFERENCES users(id),
-    gamer TEXT [],
+    gamers TEXT [],
     maxgamers INTEGER,
     descr TEXT,
     lang VARCHAR(255) NOT NULL,
@@ -44,8 +41,21 @@ CREATE TABLE posts (
     liked INTEGER
 );
 
-INSERT INTO users (firstname, lastname, post) VALUES
-  ('Sery1976', 'Serya', 'This is my FIRST blog, dsnfso fnldsn lsdng ldn kldskng kdng kdsng kdfngfxkjnkdlng jkdng kdn jfdn jnfdkgn jng dkjng dkjng kd'),
+INSERT INTO users (firstname ,lastname, username, email, pass, platform, gamelist)  VALUES
+  ('Sery1976', 'Serya', 'Seryaa', 'serya19@gmail.com', '123456', '{"PC"}', '{"Pubg"}')
+  ;
+  
 
+INSERT INTO games (gname, descr) VALUES
+  ('Pubg', 'Royal Battle')
+  ;
+
+  INSERT INTO rooms (rname, gname, host, gamers, maxgamers, descr, lang, age, skill, platform) VALUES
+  ('lets play togther', 1, 1,'{"mahmod123"}', 4, 'melee attack', 'Arabic', '23+', '{"PRO"}', 'PC')
+  ;
+
+  INSERT INTO posts (username, content,liked) VALUES
+  (1, 'Serya', 6)
+  ;
 
 COMMIT;
