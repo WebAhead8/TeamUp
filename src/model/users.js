@@ -1,7 +1,7 @@
-const db = require('../db/connection');
+const db = require("../db/connection");
 
 function getAllUser() {
-  return db.query('select * from users').then((data) => {
+  return db.query("select * from users").then((data) => {
     return data.rows;
   });
 }
@@ -18,7 +18,7 @@ function createUser(user) {
   ];
   return db
     .query(
-      'INSERT INTO users(firstname ,lastname, username, email, pass, platform, gamelist) VALUES($1, $2, $3,$4, $5, $6, $7)  returning *',
+      "INSERT INTO users(firstname ,lastname, username, email, pass, platform, gamelist) VALUES($1, $2, $3,$4, $5, $6, $7)  returning *",
       values
     )
     .then((result) => {
@@ -26,9 +26,15 @@ function createUser(user) {
     });
 }
 
+function deluser(id) {
+  return db.query(`DELETE FROM users WHERE id = ($1)`, [id]).then((result) => {
+    return result;
+  });
+}
+
 function getUser(email) {
   const values = [email];
-  return db.query('select * from users where email=$1', values).then((data) => {
+  return db.query("select * from users where email=$1", values).then((data) => {
     if (!data.rows.length)
       throw new Error(`No user with email '${email}' found`);
     return data.rows[0];
@@ -37,33 +43,33 @@ function getUser(email) {
 
 function getUserById(id) {
   const values = [id];
-  return db.query('select * from users where id=$1', values).then((data) => {
+  return db.query("select * from users where id=$1", values).then((data) => {
     if (!data.rows.length) throw new Error(`No user with id '${id}' found`);
     return data.rows[0];
   });
 }
 
-// function updateUser(id, newUser) {
-//   const values = [
-//     id,
-//     newUser.username,
-//     newUser.user_pass,
-//     newUser.email,
-//     newUser.loc,
-//   ];
-//   return {
-//     db: query('select * from users where id=$1', values).then((data) => {
-//       if (!data.rows.length) throw new Error(`No user with id '${id}' found`);
-//       return data.rows[0];
-//     }),
-//     db: query(
-//       'INSERT INTO users(username, user_pass, email,loc) VALUES($1, $2, $3,$4)',
-//       values
-//     ),
-//   };
-// const filter = (user) => user.id === parseInt(id);
-// return db.update("users", newUser, filter);
-// }
+function updateUser(id, newUser) {
+  const values = [
+    id,
+    newUser.username,
+    newUser.user_pass,
+    newUser.email,
+    newUser.loc,
+  ];
+  return {
+    db: query("select * from users where id=$1", values).then((data) => {
+      if (!data.rows.length) throw new Error(`No user with id '${id}' found`);
+      return data.rows[0];
+    }),
+    db: query(
+      "INSERT INTO users(username, user_pass, email,loc) VALUES($1, $2, $3,$4)",
+      values
+    ),
+  };
+  const filter = (user) => user.id === parseInt(id);
+  return db.update("users", newUser, filter);
+}
 
 module.exports = {
   createUser,
@@ -71,4 +77,5 @@ module.exports = {
   getUserById,
   updateUser,
   getAllUser,
+  deluser,
 };

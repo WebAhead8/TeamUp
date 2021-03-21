@@ -16,10 +16,11 @@ server.get("/", (reg, res) => {
 });
 
 //users:
-
+server.delete("/users/:id", users.delusers);
 server.get("/users", users.getAll);
 server.get("/users/:id", users.get);
 server.post("/users", users.postUsers);
+server.post("/login", users.login);
 
 // Rooms Requests
 server.get("/rooms", rooms.getAllRooms);
