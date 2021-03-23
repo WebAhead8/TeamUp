@@ -5,11 +5,13 @@ const cors = require("cors");
 const gamesHandler = require("./handlers/games");
 const postsHandler = require("./handlers/posts");
 const users = require("./handlers/users");
+const errorHandler = require("./middleware/error");
 
 const server = express();
 server.use(express.urlencoded());
 server.use(express.json());
 server.use(cors());
+server.use(errorHandler);
 
 server.get("/", (reg, res) => {
   res.send("<h1> Welcome To TeamUp API </h1>");
@@ -21,6 +23,7 @@ server.get("/users", users.getAll);
 server.get("/users/:id", users.get);
 server.post("/users", users.postUsers);
 server.post("/login", users.login);
+server.get("/login/me", users.getUserByToken);
 
 // Rooms Requests
 server.get("/rooms", rooms.getAllRooms);
