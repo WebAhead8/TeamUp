@@ -32,7 +32,7 @@ server.post("/rooms", rooms.addRoom);
 server.delete("/rooms/:id", rooms.delRoom);
 
 //games
-server.get("/AllGames", gamesHandler.getAllGames);
+server.get("/games/", gamesHandler.getAllGames);
 server.get("/game/:id", gamesHandler.getGameById);
 server.get("/games/:gname", gamesHandler.autocomplete);
 server.post("/addGame", gamesHandler.addNewGame);

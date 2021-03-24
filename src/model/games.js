@@ -23,4 +23,10 @@ function getGameById(id) {
   return db.query("SELECT * FROM games WHERE id = $1", [id]);
 }
 
-module.exports = { getAllGames, deleteGames, addGame, getGameById, autocomplete };
+module.exports = {
+  getAllGames,
+  deleteGames,
+  addGame,
+  getGameById,
+  autocomplete,
+};
