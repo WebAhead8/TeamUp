@@ -52,10 +52,13 @@ function getUserById(id) {
 function updateUser(id, newUser) {
   const values = [
     id,
+    newUser.firstname,
+    newUser.lastname,
     newUser.username,
-    newUser.user_pass,
+    newUser.pass,
     newUser.email,
-    newUser.loc,
+    newUser.platform,
+    newUser.gamelist,
   ];
   return {
     db: query("select * from users where id=$1", values).then((data) => {
@@ -63,7 +66,7 @@ function updateUser(id, newUser) {
       return data.rows[0];
     }),
     db: query(
-      "INSERT INTO users(username, user_pass, email,loc) VALUES($1, $2, $3,$4)",
+      "INSERT INTO users(firstname ,lastname, username, email, pass, platform, gamelist) VALUES($1, $2, $3,$4, $5, $6, $7)",
       values
     ),
   };
