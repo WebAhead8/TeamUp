@@ -15,4 +15,5 @@ const db = new pg.Pool({
     ssl: { rejectUnauthorized: false },
   }),
 });
+
 module.exports = db;

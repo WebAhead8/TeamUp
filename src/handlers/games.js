@@ -18,6 +18,15 @@ function getGameById(req, res, next) {
     .catch(next);
 }
 
+function autocomplete(req, res, next) {
+  gamesModel
+    .autocomplete(req.params.gname)
+    .then((game) => {
+      res.send(game.rows);
+    })
+    .catch(next);
+}
+
 function deleteGame(req, res, next) {
   const gameId = req.params.id;
   gamesModel
@@ -40,4 +49,4 @@ function addNewGame(req, res, next) {
     .catch(next);
 }
 
-module.exports = { addNewGame, deleteGame, getGameById, getAllGames };
+module.exports = { addNewGame, deleteGame, getGameById, getAllGames, autocomplete };
