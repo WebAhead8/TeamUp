@@ -47,7 +47,25 @@ INSERT INTO users (firstname ,lastname, username, email, pass, platform, gamelis
   
 
 INSERT INTO games (gname, descr) VALUES
-  ('Pubg', 'Royal Battle')
+  ('Pubg', 'Royal Battle'),
+  ('The Last Of Us', 'Teamdeath Match'),
+  ('GTAV', 'Open World'),
+  ('COD: Warzone', 'Shooter'),
+  ('COD: Cold War', 'Shooter'),
+  ('Brawlhalla', 'Battle'),
+  ('Rainbow Six', 'Shooter'),
+  ('Uncharted', 'Shooter'),
+  ('Ark', 'Survival'),
+  ('Fortnite', 'Royal Battle'),
+  ('Minecraft', 'Survival Craft'),
+  ('Among Us', 'Royal Battle'),
+  ('Overcooked', 'Cooking Battle'),
+  ('CSGO', 'Shooter'),
+  ('Overwatch', 'Royal Battle'),
+  ('Destiny 2', 'Royal Battle'),
+  ('Sea of Thieves', 'Royal Battle'),
+  ('League of Legends', 'Royal Battle'),
+  ('Apex Legends', 'Royal Battle')
   ;
 
   INSERT INTO rooms (rname, gname, host, gamers, maxgamers, descr, lang, age, skill, platform) VALUES
