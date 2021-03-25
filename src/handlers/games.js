@@ -19,7 +19,6 @@ function getGameById(req, res, next) {
 }
 
 function autocomplete(req, res, next) {
-  console.log(req.params.gname);
   gamesModel
     .autocomplete(req.params.gname)
     .then((game) => {
