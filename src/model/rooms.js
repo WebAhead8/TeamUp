@@ -45,9 +45,18 @@ function delRoom(id) {
   });
 }
 
+function getRoomByGame(id) {
+  return db
+    .query(`SELECT * FROM rooms WHERE gname = $1`, [id])
+    .then((result) => {
+      return result.rows;
+    });
+}
+
 module.exports = {
   getAllRooms,
   getRoomsId,
   addRooms,
   delRoom,
+  getRoomByGame,
 };

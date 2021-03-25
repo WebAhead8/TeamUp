@@ -21,6 +21,7 @@ server.get("/", (reg, res) => {
 server.delete("/users/:id", users.delusers);
 server.get("/users", users.getAll);
 server.get("/users/:id", users.get);
+server.get("/user/:username", users.getUserByUsername);
 server.post("/users", users.postUsers);
 server.post("/login", users.login);
 server.get("/login/me", users.getUserByToken);
@@ -28,6 +29,7 @@ server.get("/login/me", users.getUserByToken);
 // Rooms Requests
 server.get("/rooms", rooms.getAllRooms);
 server.get("/rooms/:id", rooms.getRoomsId);
+server.get("/grooms/:id", rooms.getRoomsByGame);
 server.post("/rooms", rooms.addRoom);
 server.delete("/rooms/:id", rooms.delRoom);
 

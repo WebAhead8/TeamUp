@@ -49,6 +49,16 @@ function getUserById(id) {
   });
 }
 
+function getUserByUsername(username) {
+  return db
+    .query("SELECT * FROM users WHERE username=$1", [username])
+    .then((user) => {
+      if (!user.rows.length)
+        throw new Error(`No user with username '${username}' found`);
+      return user.rows[0];
+    });
+}
+
 function updateUser(id, newUser) {
   const values = [
     id,
@@ -78,6 +88,7 @@ module.exports = {
   createUser,
   getUser,
   getUserById,
+  getUserByUsername,
   updateUser,
   getAllUser,
   deluser,

@@ -21,6 +21,7 @@ function getRoomsId(req, res, next) {
 
 function addRoom(req, res, next) {
   const newRoom = req.body;
+  console.log(newRoom);
   model
     .addRooms(newRoom)
     .then((room) => {
@@ -39,9 +40,20 @@ function delRoom(req, res, next) {
     .catch(next);
 }
 
+function getRoomsByGame(req, res, next) {
+  const id = req.params.id;
+  model
+    .getRoomByGame(id)
+    .then((data) => {
+      res.status(200).send(data);
+    })
+    .catch(next);
+}
+
 module.exports = {
   getAllRooms,
   getRoomsId,
   addRoom,
   delRoom,
+  getRoomsByGame,
 };
