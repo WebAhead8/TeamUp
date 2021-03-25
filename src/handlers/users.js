@@ -25,6 +25,16 @@ function get(req, res, next) {
     .catch(next);
 }
 
+function getUserByUsername(req, res, next) {
+  const username = req.params.username;
+  model
+    .getUserByUsername(username)
+    .then((user) => {
+      res.send(user);
+    })
+    .catch(next);
+}
+
 function postUsers(req, res, next) {
   const userData = req.body;
   const hashPass = req.body.pass;
@@ -125,6 +135,7 @@ function getUserByToken(req, res, next) {
 
 module.exports = {
   get,
+  getUserByUsername,
   getAll,
   postUsers,
   login,
