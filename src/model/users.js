@@ -58,38 +58,52 @@ function getUserByUsername(username) {
       return user.rows[0];
     });
 }
-
-function updateUser(id, newUser) {
-  const values = [
-    id,
-    newUser.firstname,
-    newUser.lastname,
-    newUser.username,
-    newUser.pass,
-    newUser.email,
-    newUser.platform,
-    newUser.gamelist,
-  ];
-  return {
-    db: query("select * from users where id=$1", values).then((data) => {
-      if (!data.rows.length) throw new Error(`No user with id '${id}' found`);
-      return data.rows[0];
-    }),
-    db: query(
-      "INSERT INTO users(firstname ,lastname, username, email, pass, platform, gamelist) VALUES($1, $2, $3,$4, $5, $6, $7)",
-      values
-    ),
-  };
-  const filter = (user) => user.id === parseInt(id);
-  return db.update("users", newUser, filter);
+// Update Functions Handlers
+function updateUsername(id, username) {
+  return db
+    .query("UPDATE users SET username=$1 WHERE id=$2", [username, id])
+    .then((user) => {
+      return user.rows[0];
+    });
 }
-
+function updateEmail(id, email) {
+  return db
+    .query("UPDATE users SET email=$1 WHERE id=$2", [email, id])
+    .then((user) => {
+      return user.rows[0];
+    });
+}
+function updatePlatforms(id, platform) {
+  return db
+    .query("UPDATE users SET platform=$1 WHERE id=$2", [platform, id])
+    .then((user) => {
+      return user.rows[0];
+    });
+}
+function updateGamesList(id, games) {
+  return db
+    .query("UPDATE users SET gamelist=$1 WHERE id=$2", [games, id])
+    .then((user) => {
+      return user.rows[0];
+    });
+}
+function updatePassword(id, pass) {
+  return db
+    .query("UPDATE users SET pass=$1 WHERE id=$2", [pass, id])
+    .then((user) => {
+      return user.rows[0];
+    });
+}
 module.exports = {
+  updatePlatforms,
   createUser,
   getUser,
   getUserById,
   getUserByUsername,
-  updateUser,
   getAllUser,
   deluser,
+  updateUsername,
+  updateEmail,
+  updateGamesList,
+  updatePassword,
 };
