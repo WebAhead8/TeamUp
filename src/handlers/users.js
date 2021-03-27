@@ -44,6 +44,8 @@ function postUsers(req, res, next) {
     .then((salt) => bcrypt.hash(hashPass, salt))
     .then((hash) => {
       userData.pass = hash;
+      userData.platform = [];
+      userData.gamelist = [];
       model
         .createUser(userData)
         .then((user) => {
@@ -60,6 +62,7 @@ function postUsers(req, res, next) {
             gamelist: user.gamelist,
             access_token: token,
           };
+          console.log("this is how we saved the platforms ", user.platform)
           res.status(201).send(response);
         })
         .catch(next);
