@@ -20,6 +20,11 @@ server.get("/", (reg, res) => {
 //users:
 server.delete("/users/:id", users.delusers);
 server.get("/users", users.getAll);
+server.post("/update/username", users.updateUsername);
+server.post("/update/email", users.updateEmail);
+server.post("/update/platforms", users.updatePlatforms);
+server.post("/update/gameslist", users.updateGamesList);
+server.post("/update/password", users.updatePassword);
 server.get("/users/:id", users.get);
 server.get("/user/:username", users.getUserByUsername);
 server.post("/users", users.postUsers);

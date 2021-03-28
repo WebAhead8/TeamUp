@@ -44,6 +44,8 @@ function postUsers(req, res, next) {
     .then((salt) => bcrypt.hash(hashPass, salt))
     .then((hash) => {
       userData.pass = hash;
+      userData.platform = [];
+      userData.gamelist = [];
       model
         .createUser(userData)
         .then((user) => {
@@ -60,6 +62,7 @@ function postUsers(req, res, next) {
             gamelist: user.gamelist,
             access_token: token,
           };
+          console.log("this is how we saved the platforms ", user.platform)
           res.status(201).send(response);
         })
         .catch(next);
@@ -102,17 +105,67 @@ function delusers(req, res, next) {
     })
     .catch(next);
 }
-function put(req, res, next) {
-  const userId = req.params.id;
-  const newUser = req.body;
+// Update Models
+function updateUsername(req, res, next) {
+  const id = req.body.id;
+  const username = req.body.username;
   model
-    .getUserById(userId)
+    .updateUsername(id, username)
     .then((user) => {
-      model.updateUser(userId, newUser).then((user) => {
-        res.status(200).send(user);
-      });
+      res.send(user);
     })
     .catch(next);
+}
+
+function updateEmail(req, res, next) {
+  const id = req.body.id;
+  const email = req.body.email;
+  model
+    .updateEmail(id, email)
+    .then((user) => {
+      res.send(user);
+    })
+    .catch(next);
+}
+
+function updatePlatforms(req, res, next) {
+  const id = req.body.id;
+  const platform = req.body.platform;
+  console.log("id ", id, " data ", platform);
+  model
+    .updatePlatforms(id, platform)
+    .then((user) => {
+      res.send(user);
+    })
+    .catch(next);
+}
+function updateGamesList(req, res, next) {
+  const id = req.body.id;
+  const gamelist = req.body.gamelist;
+  model
+    .updateGamesList(id, gamelist)
+    .then((user) => {
+      res.send(user);
+    })
+    .catch(next);
+}
+
+function updatePassword(req, res, next) {
+  const id = req.body.id;
+  const hashPass = req.body.pass;
+
+  bcrypt
+    .genSalt(10)
+    .then((salt) => bcrypt.hash(hashPass, salt))
+    .then((hash) => {
+      pass = hash;
+      model
+        .updatePassword(id, pass)
+        .then((user) => {
+          res.send(user);
+        })
+        .catch(next);
+    });
 }
 
 //login in all pages:
@@ -139,7 +192,11 @@ module.exports = {
   getAll,
   postUsers,
   login,
-  put,
+  updateUsername,
   getUserByToken,
   delusers,
+  updateEmail,
+  updatePlatforms,
+  updateGamesList,
+  updatePassword,
 };
