@@ -23,8 +23,8 @@ function addNewPost(req, res, next) {
   const newPost = req.body;
   postsModel
     .addNewPost(newPost)
-    .then(() => {
-      res.status(201).send("The Post ADDED :)");
+    .then((newpost) => {
+      res.status(201).send(newpost);
     })
     .catch(next);
 }
