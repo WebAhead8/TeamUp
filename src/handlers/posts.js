@@ -1,4 +1,4 @@
-const postsModel = require("../model/posts");
+const postsModel = require('../model/posts');
 
 function getAllPosts(req, res, next) {
   postsModel
@@ -14,7 +14,7 @@ function addNewPost(req, res, next) {
   postsModel
     .addNewPost(newPost)
     .then(() => {
-      res.status(204).send("The Post ADDED :)");
+      res.status(201).send('The Post ADDED :)');
     })
     .catch(next);
 }
@@ -24,7 +24,7 @@ function deletePost(req, res, next) {
   postsModel
     .deletePost(postId)
     .then(() => {
-      res.status(204).send("The Post Has DELETED :(");
+      res.status(204).send('The Post Has DELETED :(');
     })
     .catch(next);
 }
