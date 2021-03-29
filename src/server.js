@@ -48,6 +48,7 @@ server.delete("/game/:id", gamesHandler.deleteGame);
 
 //posts
 server.get("/AllPosts", postsHandler.getAllPosts);
+server.get("/posts/:id", postsHandler.getUsersPost);
 server.post("/addPost", postsHandler.addNewPost);
 server.delete("/post/:id", postsHandler.deletePost);
 

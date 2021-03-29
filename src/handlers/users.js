@@ -50,6 +50,7 @@ function postUsers(req, res, next) {
         .createUser(userData)
         .then((user) => {
           const token = jwt.sign({ user: user.id }, SECRET, {
+
             expiresIn: "5h",
           });
           const response = {
@@ -62,6 +63,7 @@ function postUsers(req, res, next) {
             gamelist: user.gamelist,
             access_token: token,
           };
+
           console.log("this is how we saved the platforms ", user.platform);
           res.status(201).send(response);
         })
