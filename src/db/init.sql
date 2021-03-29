@@ -1,6 +1,6 @@
 BEGIN;
 
-DROP TABLE IF EXISTS users, games, rooms, posts CASCADE; 
+DROP TABLE IF EXISTS users, games, rooms, posts, avatarImg CASCADE; 
 
 
 CREATE TABLE users (
@@ -11,7 +11,8 @@ CREATE TABLE users (
   email VARCHAR(255) NOT NULL UNIQUE,
   pass VARCHAR(255) NOT NULL,
   platform TEXT [],
-  gamelist TEXT []
+  gamelist TEXT [],
+  avatarIcon TEXT
 );
 
 CREATE TABLE games (
@@ -30,7 +31,7 @@ CREATE TABLE rooms (
     descr TEXT,
     lang VARCHAR(255) NOT NULL,
     age VARCHAR(255) NOT NULL,
-    skill TEXT [],
+    skill TEXT,
     platform VARCHAR(255) NOT NULL
 );
 
@@ -41,8 +42,26 @@ CREATE TABLE posts (
     liked INTEGER
 );
 
-INSERT INTO users (firstname ,lastname, username, email, pass, platform, gamelist)  VALUES
-  ('Sery1976', 'Serya', 'Seryaa', 'serya19@gmail.com', '123456', '{"PC"}', '{"Pubg"}')
+CREATE TABLE avatarImg (
+    id SERIAL PRIMARY KEY,
+    avatarSrc TEXT NOT NULL,
+    avatarName VARCHAR(255) NOT NULL
+);
+
+INSERT INTO avatarImg (avatarName, avatarSrc) VALUES 
+('persone1','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzUjuJ9a9w5dwIX_6aNGakPBVsgLzkE1mw1g&usqp=CAU'),
+('persone2','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStqcnztZvciX-ShiuJxRGNX46F6GRCQi-_Eg&usqp=CAU'),
+('persone3','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFaBxwrb4dKge__RTHGSSDR4J_eO7Tg8zekQ&usqp=CAU'),
+('persone4','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyz-77X11MoGE22xVjjPhbpW6lPj6I0SkcTQ&usqp=CAU'),
+('persone5','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlG4gXA0eUk2HgpynHSv30FXiqNOJEcwwXYmBiBUeHqfM6kUK3isKCUqPQXJq-ZECqOuw&usqp=CAU'),
+('persone6','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToySq_WusGScvQ9hanrX3JpqOW-6_JNYM-iSNCfP-978MLxl5z2Wo9Ue_VNQ9H3UbnJOM&usqp=CAU'),
+('persone7','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQn8P6POnmXE2YJlFMqlJ-b2F_t8bdqTq4CAb-mQWDeI813MCCXefNOg9RjN2AQZwPzy3Y&usqp=CAU'),
+('persone8','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLg7YYue_VyRsQLCwmguYP8nSLBwe24G8WgqJr8i_YxHwyHXbn9wqkZXAwdAvSGF9kVMk&usqp=CAU'),
+('persone9','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSla-p7MqWVSLL2rpSQHlxEO6mKceKYPvZjo4oslefoeXE7-oMcRHP5IfT3qgllHC8kKvQ&usqp=CAU'),
+('persone10','https://www.w3schools.com/w3images/avatar6.png');
+
+INSERT INTO users (firstname ,lastname, username, email, pass, platform, gamelist, avatarIcon)  VALUES
+  ('Sery1976', 'Serya', 'Seryaa', 'serya19@gmail.com', '123456', '{"PC"}', '{"Pubg"}', '')
   ;
   
 
