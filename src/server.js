@@ -6,6 +6,7 @@ const gamesHandler = require("./handlers/games");
 const postsHandler = require("./handlers/posts");
 const users = require("./handlers/users");
 const errorHandler = require("./middleware/error");
+const avatarIcon = require("./handlers/avatarIcon");
 
 const server = express();
 server.use(express.urlencoded());
@@ -50,5 +51,8 @@ server.get("/AllPosts", postsHandler.getAllPosts);
 server.get("/posts/:id", postsHandler.getUsersPost);
 server.post("/addPost", postsHandler.addNewPost);
 server.delete("/post/:id", postsHandler.deletePost);
+
+//avatarIcon
+server.get("/avatarImg", avatarIcon.getAvatarImg);
 
 server.listen(PORT, () => console.log(`Listening on http://localhost:${PORT}`));

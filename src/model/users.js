@@ -15,10 +15,11 @@ function createUser(user) {
     user.pass,
     user.platform,
     user.gamelist,
+    user.avatarIcon,
   ];
   return db
     .query(
-      "INSERT INTO users(firstname ,lastname, username, email, pass, platform, gamelist) VALUES($1, $2, $3,$4, $5, $6, $7)  returning *",
+      "INSERT INTO users(firstname ,lastname, username, email, pass, platform, gamelist, avatarIcon) VALUES($1, $2, $3,$4, $5, $6, $7, $8)  returning *",
       values
     )
     .then((result) => {
