@@ -50,7 +50,6 @@ function postUsers(req, res, next) {
         .createUser(userData)
         .then((user) => {
           const token = jwt.sign({ user: user.id }, SECRET, {
-
             expiresIn: "5h",
           });
           const response = {
@@ -133,7 +132,7 @@ function updateEmail(req, res, next) {
 function updatePlatforms(req, res, next) {
   const id = req.body.id;
   const platform = req.body.platform;
-  console.log("id ", id, " data ", platform);
+
   model
     .updatePlatforms(id, platform)
     .then((user) => {

@@ -62,35 +62,42 @@ function getUserByUsername(username) {
 // Update Functions Handlers
 function updateUsername(id, username) {
   return db
-    .query("UPDATE users SET username=$1 WHERE id=$2", [username, id])
+    .query("UPDATE users SET username=$1 WHERE id=$2 RETURNING *", [
+      username,
+      id,
+    ])
     .then((user) => {
       return user.rows[0];
     });
 }
 function updateEmail(id, email) {
   return db
-    .query("UPDATE users SET email=$1 WHERE id=$2", [email, id])
+    .query("UPDATE users SET email=$1 WHERE id=$2 RETURNING *", [email, id])
     .then((user) => {
       return user.rows[0];
     });
 }
 function updatePlatforms(id, platform) {
   return db
-    .query("UPDATE users SET platform=$1 WHERE id=$2", [platform, id])
+    .query("UPDATE users SET platform=$1 WHERE id=$2 RETURNING *", [
+      platform,
+      id,
+    ])
     .then((user) => {
       return user.rows[0];
     });
 }
+
 function updateGamesList(id, games) {
   return db
-    .query("UPDATE users SET gamelist=$1 WHERE id=$2", [games, id])
+    .query("UPDATE users SET gamelist=$1 WHERE id=$2 RETURNING *", [games, id])
     .then((user) => {
       return user.rows[0];
     });
 }
 function updatePassword(id, pass) {
   return db
-    .query("UPDATE users SET pass=$1 WHERE id=$2", [pass, id])
+    .query("UPDATE users SET pass=$1 WHERE id=$2 RETURNING *", [pass, id])
     .then((user) => {
       return user.rows[0];
     });
