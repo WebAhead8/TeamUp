@@ -21,7 +21,6 @@ function getRoomsId(req, res, next) {
 
 function addRoom(req, res, next) {
   const newRoom = req.body;
-
   model
     .addRooms(newRoom)
     .then((room) => {
