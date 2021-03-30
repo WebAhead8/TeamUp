@@ -61,11 +61,11 @@ INSERT INTO avatarImg (avatarName, avatarSrc) VALUES
 ('persone10','https://www.w3schools.com/w3images/avatar6.png');
 
 INSERT INTO users (firstname ,lastname, username, email, pass, platform, gamelist, avatarIcon)  VALUES
-  ('Sery1976', 'Serya', 'Seryaa', 'serya19@gmail.com', '123456', '{"PC"}', '{"Pubg"}', ''),
-  ('Boshe', 'Wiki', 'Boshee', 'boshee97@gmail.com', '234567', '{"PS"}', '{"The Last of Us"}'),
-  ('Mah', 'Diabo', 'Aldiab', 'diab97@gmail.com', '345678', '{"PC"}', '{"COD"}'),
-  ('Mario', 'Mar', 'Marioka98', 'marioka98@gmail.com', '456789', '{"PC"}', '{"Fortnite"}'),
-  ('Hamodi', 'Kh', 'ElHamodi', 'elhamodi92@gmail.com', '567890', '{"PC"}', '{"Apex Legends"}')
+  ('Sery1976', 'Serya', 'Seryaa', 'serya19@gmail.com', '123456', '{"PC"}', '{"Pubg"}', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzUjuJ9a9w5dwIX_6aNGakPBVsgLzkE1mw1g&usqp=CAU'),
+  ('Boshe', 'Wiki', 'Boshee', 'boshee97@gmail.com', '234567', '{"PS"}', '{"The Last of Us"}', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStqcnztZvciX-ShiuJxRGNX46F6GRCQi-_Eg&usqp=CAU'),
+  ('Mah', 'Diabo', 'Aldiab', 'diab97@gmail.com', '345678', '{"PC"}', '{"COD"}', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFaBxwrb4dKge__RTHGSSDR4J_eO7Tg8zekQ&usqp=CAU'),
+  ('Mario', 'Mar', 'Marioka98', 'marioka98@gmail.com', '456789', '{"PC"}', '{"Fortnite"}', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyz-77X11MoGE22xVjjPhbpW6lPj6I0SkcTQ&usqp=CAU'),
+  ('Hamodi', 'Kh', 'ElHamodi', 'elhamodi92@gmail.com', '567890', '{"PC"}', '{"Apex Legends"}', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlG4gXA0eUk2HgpynHSv30FXiqNOJEcwwXYmBiBUeHqfM6kUK3isKCUqPQXJq-ZECqOuw&usqp=CAU')
   ;
   
 
