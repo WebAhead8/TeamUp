@@ -93,9 +93,9 @@ INSERT INTO games (gname, descr) VALUES
 
   INSERT INTO rooms (rname, gname, host, gamers, maxgamers, descr, lang, age, skill, platform) VALUES
   ('lets play togther', 1, 1,'{"Boshee fans"}', 4, 'melee attack', 'Arabic', '23+', '{"PRO"}', 'PC'),
-  ('For noobs ONLY',2,2, '{"Boshee fans"}', 10, 'Boxing', 'English', '18+', '{"no skill needed"}', 'PS'),
-  ('lets play with diab', 4, 3,'{"mahmod cod leader"}', 5, 'Boxing', 'Arabic', '23+', '{"PRO"}', 'PC')
-  ('lets play with mario', 10, 4,'{"Mario new player"}', 20, 'noobs fortnite players', 'English', '23+', '{"PRO"}', 'PC')
+  ('For noobs ONLY', 2, 2, '{"Boshee fans"}', 10, 'Boxing', 'English', '18+', '{"no skill needed"}', 'PS'),
+  ('lets play with diab', 4, 3,'{"mahmod cod leader"}', 5, 'Boxing', 'Arabic', '23+', '{"PRO"}', 'PC'),
+  ('lets play with mario', 10, 4,'{"Mario new player"}', 20, 'noobs fortnite players', 'English', '23+', '{"PRO"}', 'PC'),
   ('only professionals', 18, 5,'{"Best players"}', 3, 'Team players', 'Hebrow', '23+', '{"PRO"}', 'PC')
 
   ;
