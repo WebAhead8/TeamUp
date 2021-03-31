@@ -117,6 +117,17 @@ function updateUsername(req, res, next) {
     })
     .catch(next);
 }
+function updateAvatarImg(req, res, next) {
+  const id = req.body.id;
+  const avatarIcon = req.body.avatarIcon;
+  console.log(avatarIcon, "userFileHandel");
+  model
+    .updateAvatarImg(id, avatarIcon)
+    .then((user) => {
+      res.send(user);
+    })
+    .catch(next);
+}
 
 function updateEmail(req, res, next) {
   const id = req.body.id;
@@ -200,4 +211,5 @@ module.exports = {
   updatePlatforms,
   updateGamesList,
   updatePassword,
+  updateAvatarImg,
 };

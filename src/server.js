@@ -26,6 +26,7 @@ server.post("/update/email", users.updateEmail);
 server.post("/update/platforms", users.updatePlatforms);
 server.post("/update/gameslist", users.updateGamesList);
 server.post("/update/password", users.updatePassword);
+server.post("/update/avatarimg", users.updateAvatarImg);
 server.get("/users/:id", users.get);
 server.get("/user/:username", users.getUserByUsername);
 server.post("/users", users.postUsers);
