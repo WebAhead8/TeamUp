@@ -77,7 +77,6 @@ function updateAvatarImg(id, avatarIcon) {
       id,
     ])
     .then((user) => {
-      console.log(user.rows[0]);
       return user.rows[0];
     });
 }
