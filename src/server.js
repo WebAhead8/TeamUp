@@ -21,17 +21,17 @@ server.get("/", (reg, res) => {
 //users:
 server.delete("/users/:id", users.delusers);
 server.get("/users", users.getAll);
+server.get("/users/:id", users.get);
+server.get("/user/:username", users.getUserByUsername);
+server.get("/login/me", users.getUserByToken);
 server.post("/update/username", users.updateUsername);
 server.post("/update/email", users.updateEmail);
 server.post("/update/platforms", users.updatePlatforms);
 server.post("/update/gameslist", users.updateGamesList);
 server.post("/update/password", users.updatePassword);
 server.post("/update/avatarimg", users.updateAvatarImg);
-server.get("/users/:id", users.get);
-server.get("/user/:username", users.getUserByUsername);
 server.post("/users", users.postUsers);
 server.post("/login", users.login);
-server.get("/login/me", users.getUserByToken);
 
 // Rooms Requests
 server.get("/rooms", rooms.getAllRooms);
