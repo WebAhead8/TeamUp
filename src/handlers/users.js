@@ -62,8 +62,6 @@ function postUsers(req, res, next) {
             gamelist: user.gamelist,
             access_token: token,
           };
-
-          console.log("this is how we saved the platforms ", user.platform);
           res.status(201).send(response);
         })
         .catch(next);
@@ -120,7 +118,6 @@ function updateUsername(req, res, next) {
 function updateAvatarImg(req, res, next) {
   const id = req.body.id;
   const avatarIcon = req.body.avatarIcon;
-  console.log(avatarIcon, "userFileHandel");
   model
     .updateAvatarImg(id, avatarIcon)
     .then((user) => {
