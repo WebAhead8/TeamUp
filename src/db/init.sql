@@ -49,16 +49,24 @@ CREATE TABLE avatarImg (
 );
 
 INSERT INTO avatarImg (avatarName, avatarSrc) VALUES 
-('persone1','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzUjuJ9a9w5dwIX_6aNGakPBVsgLzkE1mw1g&usqp=CAU'),
-('persone2','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStqcnztZvciX-ShiuJxRGNX46F6GRCQi-_Eg&usqp=CAU'),
-('persone3','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFaBxwrb4dKge__RTHGSSDR4J_eO7Tg8zekQ&usqp=CAU'),
-('persone4','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyz-77X11MoGE22xVjjPhbpW6lPj6I0SkcTQ&usqp=CAU'),
-('persone5','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlG4gXA0eUk2HgpynHSv30FXiqNOJEcwwXYmBiBUeHqfM6kUK3isKCUqPQXJq-ZECqOuw&usqp=CAU'),
-('persone6','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToySq_WusGScvQ9hanrX3JpqOW-6_JNYM-iSNCfP-978MLxl5z2Wo9Ue_VNQ9H3UbnJOM&usqp=CAU'),
-('persone7','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQn8P6POnmXE2YJlFMqlJ-b2F_t8bdqTq4CAb-mQWDeI813MCCXefNOg9RjN2AQZwPzy3Y&usqp=CAU'),
-('persone8','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLg7YYue_VyRsQLCwmguYP8nSLBwe24G8WgqJr8i_YxHwyHXbn9wqkZXAwdAvSGF9kVMk&usqp=CAU'),
-('persone9','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSla-p7MqWVSLL2rpSQHlxEO6mKceKYPvZjo4oslefoeXE7-oMcRHP5IfT3qgllHC8kKvQ&usqp=CAU'),
-('persone10','https://www.w3schools.com/w3images/avatar6.png');
+('Joel Miller','https://static.wikia.nocookie.net/thelastofus/images/1/17/Joel_2038_shoulder_infobox.jpg/revision/latest?cb=20201121211458'),
+('Ellie Williams','https://static.wikia.nocookie.net/thelastofus/images/5/50/Ellie_Jackson_shoulder_infobox.jpg/revision/latest?cb=20201121211251'),
+('Dina','https://static.wikia.nocookie.net/thelastofus/images/f/f7/Dina_Farm_close_up.png/revision/latest?cb=20201112230350'),
+('Lara Croft','https://i.pinimg.com/originals/eb/88/1f/eb881fc72133bffec6b6f98fffa03a9e.jpg'),
+('Nathan Drake','https://static.wikia.nocookie.net/uncharted/images/9/9d/Nathan_Drake_from_A_Thief%27s_End.png/revision/latest?cb=20180521172750'),
+('Samuel Drake','https://static.tvtropes.org/pmwiki/pub/images/sam_drake_001.jpg'),
+('Elena Fisher','https://static.wikia.nocookie.net/uncharted/images/d/de/Elena_Fisher_from_ATE.png/revision/latest?cb=20160707202711'),
+('Victor Sullivan','https://static.wikia.nocookie.net/uncharted/images/0/09/Victor_Sullivan_from_A_Thief%27s_End.png/revision/latest?cb=20180521172919'),
+('Chloe','https://s3.amazonaws.com/prod-media.gameinformer.com/styles/thumbnail/s3/legacy-images/The%20Evolution%20Of%20Chloe%E2%80%99s%20Design%20For%20Uncharted%3A%20The%20Lost%20Legacy/chloe_5F00_game_5F00_informer1.jpg'),
+('Maxine Caulfield','https://miro.medium.com/max/4050/0*19XH9E5y5CS3Rqoz.jpg'),
+('Chloe Price','https://beamlasopa462.weebly.com/uploads/1/2/6/6/126666449/673036837.jpg'),
+('Rachel Amber','https://static.wikia.nocookie.net/life-is-strange/images/0/09/BtS_rachel.png/revision/latest?cb=20170901142604'),
+('Arthur  Morgan','https://static.wikia.nocookie.net/reddeadredemption/images/5/52/RDR2_Arthur_Morgan_Default.jpg/revision/latest?cb=20200602191534'),
+('Aloy','https://s1.1zoom.me/big0/728/Warriors_Horizon_Zero_Dawn_Aloy_Redhead_girl_Face_566425_1358x1024.jpg'),
+('Kratos','https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/c072a9f7-5085-43da-82b5-7ecfb5873367/dc9ayte-a5cefaec-f925-48d9-8638-7a504386b364.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvYzA3MmE5ZjctNTA4NS00M2RhLTgyYjUtN2VjZmI1ODczMzY3XC9kYzlheXRlLWE1Y2VmYWVjLWY5MjUtNDhkOS04NjM4LTdhNTA0Mzg2YjM2NC5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.q1OwsnIil2Uge2nquD192oozINbW90pEfHN5IeC180U'),
+('Scorpion','https://i.pinimg.com/originals/ce/d0/66/ced0664f5047413861e9f501be6ef0b5.jpg'),
+('Sub Zero','https://wallpaperaccess.com/full/255016.jpg')
+;
 
 INSERT INTO users (firstname ,lastname, username, email, pass, platform, gamelist, avatarIcon)  VALUES
   ('Sery1976', 'Serya', 'Seryaa', 'serya19@gmail.com', '123456', '{"PC"}', '{"Pubg"}', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzUjuJ9a9w5dwIX_6aNGakPBVsgLzkE1mw1g&usqp=CAU'),
