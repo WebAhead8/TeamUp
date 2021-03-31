@@ -70,6 +70,17 @@ function updateUsername(id, username) {
       return user.rows[0];
     });
 }
+function updateAvatarImg(id, avatarIcon) {
+  return db
+    .query("UPDATE users SET avatarIcon=$1 WHERE id=$2 RETURNING *", [
+      avatarIcon,
+      id,
+    ])
+    .then((user) => {
+      console.log(user.rows[0]);
+      return user.rows[0];
+    });
+}
 function updateEmail(id, email) {
   return db
     .query("UPDATE users SET email=$1 WHERE id=$2 RETURNING *", [email, id])
@@ -114,4 +125,5 @@ module.exports = {
   updateEmail,
   updateGamesList,
   updatePassword,
+  updateAvatarImg,
 };
