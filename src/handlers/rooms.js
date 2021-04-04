@@ -1,52 +1,63 @@
-const model = require("../model/rooms");
+const model = require('../model/rooms')
 
 function getAllRooms(req, res, next) {
   model
     .getAllRooms()
     .then((room) => {
-      res.send(room);
+      res.send(room)
     })
-    .catch(next);
+    .catch(next)
 }
 
 function getRoomsId(req, res, next) {
-  const id = req.params.id;
+  const id = req.params.id
   model
     .getRoomsId(id)
     .then((room) => {
-      res.send(room);
+      res.send(room)
     })
-    .catch(next);
+    .catch(next)
 }
 
 function addRoom(req, res, next) {
-  const newRoom = req.body;
+  const newRoom = req.body
   model
     .addRooms(newRoom)
     .then((room) => {
-      res.status(201).send(room);
+      res.status(201).send(room)
     })
-    .catch(next);
+    .catch(next)
 }
 
 function delRoom(req, res, next) {
-  const id = req.params.id;
+  const id = req.params.id
   model
     .delRoom(id)
     .then(() => {
-      res.status(204).send();
+      res.status(204).send()
     })
-    .catch(next);
+    .catch(next)
 }
 
 function getRoomsByGame(req, res, next) {
-  const id = req.params.id;
+  const id = req.params.id
   model
     .getRoomByGame(id)
     .then((data) => {
-      res.status(200).send(data);
+      res.status(200).send(data)
     })
-    .catch(next);
+    .catch(next)
+}
+
+function updateGamersRoom(req, res, next) {
+  const id = req.params.id
+  const newGamers = req.body
+  model
+    .updateGamersRoom(id, newGamers)
+    .then((rooms) => {
+      res.status(200).send(rooms)
+    })
+    .catch(next)
 }
 
 module.exports = {
@@ -55,4 +66,5 @@ module.exports = {
   addRoom,
   delRoom,
   getRoomsByGame,
-};
+  updateGamersRoom,
+}

@@ -1,18 +1,18 @@
-const path = require("path");
-const db = require(path.join(__dirname, "..", "db", "connection"));
+const path = require('path')
+const db = require(path.join(__dirname, '..', 'db', 'connection'))
 
 function getAllRooms() {
   return db.query(`SELECT * from rooms`).then((result) => {
-    return result.rows;
-  });
+    return result.rows
+  })
 }
 
 function getRoomsId(id) {
   return db
     .query(`SELECT * FROM rooms WHERE id = ($1)`, [id])
     .then((result) => {
-      return result.rows;
-    });
+      return result.rows
+    })
 }
 
 function addRooms(room) {
@@ -27,30 +27,37 @@ function addRooms(room) {
     room.age,
     room.skill,
     room.platform,
-  ];
+  ]
 
   return db
     .query(
       `INSERT INTO rooms (rname, gname, host, gamers, maxgamers, descr, lang, age, skill, platform) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10) returning *`,
-      roomDetails
+      roomDetails,
     )
     .then((result) => {
-      return result.rows;
-    });
+      return result.rows
+    })
 }
 
 function delRoom(id) {
   return db.query(`DELETE FROM rooms WHERE id = ($1)`, [id]).then((result) => {
-    return result;
-  });
+    return result
+  })
 }
 
 function getRoomByGame(id) {
   return db
     .query(`SELECT * FROM rooms WHERE gname = $1`, [id])
     .then((result) => {
-      return result.rows;
-    });
+      return result.rows
+    })
+}
+
+function updateGamersRoom(roomId, newGamers) {
+  return db.query('UPDATE rooms SET gamers=$1 WHERE id=$2 RETURNING *', [
+    newGamers,
+    roomId,
+  ])
 }
 
 module.exports = {
@@ -59,4 +66,5 @@ module.exports = {
   addRooms,
   delRoom,
   getRoomByGame,
-};
+  updateGamersRoom,
+}
